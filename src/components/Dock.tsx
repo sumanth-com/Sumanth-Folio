@@ -59,7 +59,7 @@ export default function Dock() {
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="fixed bottom-8 left-1/2 z-50 flex h-16 -translate-x-1/2 items-end gap-4 rounded-2xl border border-black/10 bg-white/95 px-4 pb-3 shadow-lg backdrop-blur-md"
+      className="fixed bottom-4 left-1/2 z-50 flex h-16 -translate-x-1/2 items-end gap-4 rounded-xl border border-black/12 bg-white/95 px-4 pb-3 shadow-lg backdrop-blur-md"
     >
       {DOCK_ITEMS.map((item) => (
         <DockIcon key={item.id} mouseX={mouseX} item={item} />
@@ -90,7 +90,7 @@ function DockIcon({
       <motion.div
         ref={ref}
         style={{ width }}
-        className="group relative flex aspect-square w-10 items-center justify-center rounded-full border border-black/10 bg-white transition-colors hover:bg-black hover:text-white"
+        className="group relative flex aspect-square w-10 items-center justify-center rounded-xl border border-black/10 bg-white transition-colors hover:bg-black hover:text-white"
       >
         <item.icon className="h-1/2 w-1/2 text-black group-hover:text-white" />
 
