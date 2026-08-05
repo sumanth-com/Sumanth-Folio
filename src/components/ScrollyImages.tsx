@@ -9,7 +9,6 @@ import {
 import { useEffect, useRef } from "react";
 import HeroSlideOneOverlay from "@/components/HeroSlideOneOverlay";
 import HeroSlideThreeOverlay from "@/components/HeroSlideThreeOverlay";
-import HeroSlideTwoOverlay from "@/components/HeroSlideTwoOverlay";
 
 interface ScrollyImagesProps {
   images: string[];
@@ -84,7 +83,7 @@ export default function ScrollyImages({ images }: ScrollyImagesProps) {
   });
 
   return (
-    <div ref={containerRef} className="relative h-[480vh]">
+    <div ref={containerRef} className="relative h-[320vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
         {images.map((src, index) => (
           <ScrollyImageLayer
@@ -96,10 +95,6 @@ export default function ScrollyImages({ images }: ScrollyImagesProps) {
           />
         ))}
         <HeroSlideOneOverlay
-          scrollYProgress={scrollYProgress}
-          total={images.length}
-        />
-        <HeroSlideTwoOverlay
           scrollYProgress={scrollYProgress}
           total={images.length}
         />

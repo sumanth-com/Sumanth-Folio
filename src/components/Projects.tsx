@@ -238,21 +238,21 @@ export default function Projects() {
 
   return (
     <section
-      className="relative z-20 min-h-screen overflow-hidden bg-white py-32 px-4 md:px-12"
+      className="relative z-20 overflow-hidden px-4 py-16 md:px-10 md:py-20"
       id="projects"
     >
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-12 md:mb-14"
         >
-          <h2 className="mb-6 text-5xl font-bold tracking-tight text-black md:text-7xl">
+          <h2 className="mb-3 text-[clamp(2rem,4vw,3.5rem)] font-bold tracking-tight text-black">
             Selected Works
           </h2>
-          <p className="max-w-2xl text-lg leading-relaxed text-black/60">
+          <p className="max-w-2xl text-[15px] leading-relaxed text-black/55 md:text-base">
             Five shipped products — organized, built, and ready to explore.
           </p>
         </motion.div>

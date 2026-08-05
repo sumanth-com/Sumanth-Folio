@@ -12,32 +12,61 @@ export default function HeroIntro() {
     >
       <div className="w-[min(36vw,440px)]">
         <p className="mb-4 text-[clamp(1.65rem,2.6vw,2.35rem)] font-bold leading-tight tracking-tight text-black">
-          Mr. Sumanth Reddy
+          I&apos;m Sumanth Reddy
         </p>
 
-        <h1 className="mb-4 whitespace-nowrap text-[clamp(0.82rem,1.15vw,1.05rem)] font-bold tracking-tight text-black xl:text-[1.08rem]">
-          A Developer Who Builds Beyond Requirements.
+        <h1 className="mb-4 text-[clamp(0.82rem,1.15vw,1.05rem)] font-bold tracking-tight text-black xl:text-[1.08rem]">
+          I lead products from vision to launch with clarity and conviction.
         </h1>
 
         <p className="mb-6 max-w-[360px] text-[clamp(0.8rem,1vw,0.9rem)] leading-relaxed text-black/55">
-          I don&apos;t wait for instructions. I identify problems, design better
-          solutions, and ship products that create measurable impact.
+          Strong ideas deserve decisive execution. I align design, engineering,
+          and strategy so products ship with purpose and lasting impact.
         </p>
 
-        <div className="flex flex-wrap items-center gap-2.5">
-          <a
-            href="#contact"
-            className="rounded-full bg-black px-4 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-85 sm:px-5 sm:text-sm"
-          >
-            Contact Me
-          </a>
-          <a
-            href="#contact"
-            className="rounded-full border border-black/15 bg-white px-4 py-2.5 text-[13px] font-semibold text-black transition-colors hover:bg-black hover:text-white sm:px-5 sm:text-sm"
-          >
-            Launch Scalable Products
-          </a>
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] font-medium text-black/60 sm:text-[12px]">
+          <span className="inline-flex items-center gap-2">
+            <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-black px-2 text-[11px] font-bold text-white">
+              1.5+
+            </span>
+            years of experience
+          </span>
+          <span className="h-1 w-1 rounded-full bg-black/25" aria-hidden />
+          <span className="inline-flex items-center gap-2">
+            <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-black px-2 text-[11px] font-bold text-white">
+              21+
+            </span>
+            happy clients
+          </span>
         </div>
+
+        <motion.div
+          animate={{ y: [0, 8, 0], opacity: [0.45, 1, 0.45] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          className="mt-7 flex w-full max-w-[360px] flex-col items-center gap-1.5"
+          aria-hidden
+        >
+          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-black/40">
+            Scroll
+          </span>
+          <span className="relative flex h-9 w-9 items-center justify-center">
+            <span className="absolute inset-0 rounded-full bg-black/5 blur-[2px]" />
+            <span className="absolute inset-0 animate-ping rounded-full bg-black/10 [animation-duration:2s]" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className="relative h-5 w-5 text-black drop-shadow-[0_0_6px_rgba(0,0,0,0.35)]"
+            >
+              <path
+                d="M12 4v14M12 18l-5-5M12 18l5-5"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </motion.div>
       </div>
     </motion.div>
   );

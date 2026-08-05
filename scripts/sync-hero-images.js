@@ -3,14 +3,15 @@ const path = require("path");
 
 const assetsDir = path.join(__dirname, "../src/assets");
 const heroFile = path.join(assetsDir, "hero.ts");
-const HERO_FILES = ["1.png", "2.png", "3.png"];
+/** Slide 2 (wink / terminal) removed — only intro + impact portraits. */
+const HERO_FILES = ["1.png", "3.png"];
 
 const pngFiles = HERO_FILES.filter((file) =>
   fs.existsSync(path.join(assetsDir, file))
 );
 
 if (pngFiles.length === 0) {
-  console.error("No hero images found. Add 1.png, 2.png, 3.png to src/assets/");
+  console.error("No hero images found. Add 1.png and 3.png to src/assets/");
   process.exit(1);
 }
 

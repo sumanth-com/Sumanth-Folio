@@ -34,19 +34,19 @@ export default function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="relative z-20 min-h-screen overflow-hidden bg-white py-32 px-4 md:px-12" id="journey">
-      <div className="relative z-10 mx-auto max-w-7xl">
+    <section className="relative z-20 overflow-hidden py-14 px-4 md:px-10 md:py-16" id="journey">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-20 text-center"
+          className="mb-10 text-center"
         >
-          <h2 className="mb-6 text-5xl font-bold tracking-tight text-black md:text-7xl">
+          <h2 className="mb-3 text-4xl font-bold tracking-tight text-black md:text-5xl lg:text-6xl">
             My Journey
           </h2>
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-black/60">
+          <p className="mx-auto max-w-2xl text-[15px] leading-relaxed text-black/55 md:text-base">
             From writing my first &quot;Hello World&quot; to building complex applications.
             Here is a glimpse into my professional evolution.
           </p>

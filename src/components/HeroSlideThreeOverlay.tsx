@@ -20,7 +20,7 @@ export default function HeroSlideThreeOverlay({
   total,
 }: HeroSlideThreeOverlayProps) {
   const segmentSize = 1 / total;
-  const index = 2;
+  const index = total - 1;
   const start = index * segmentSize;
   const end = (index + 1) * segmentSize;
   const fade = segmentSize * 0.2;

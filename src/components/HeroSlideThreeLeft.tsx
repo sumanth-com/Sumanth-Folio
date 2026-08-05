@@ -30,7 +30,7 @@ export default function HeroSlideThreeLeft() {
         </p>
 
         <a
-          href="#contact"
+          href="/contact"
           className="mt-4 inline-flex items-center justify-center rounded-full bg-black px-5 py-2.5 text-[12px] font-semibold text-white transition-opacity hover:opacity-85"
         >
           Let&apos;s Ship Your Product →

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Instrument_Serif, Inter, Allura } from "next/font/google";
+import AppShell from "@/components/AppShell";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,9 +9,23 @@ const inter = Inter({
   display: "swap",
 });
 
+const instrument = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-instrument",
+  display: "swap",
+});
+
+const signature = Allura({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-allura",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Scrollytelling Portfolio",
-  description: "A cinematic developer portfolio.",
+  title: "Sumanth Reddy",
+  description: "Product architect and full stack developer portfolio.",
 };
 
 export default function RootLayout({
@@ -20,7 +35,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>{children}</body>
+      <body
+        className={`${inter.variable} ${instrument.variable} ${signature.variable} antialiased`}
+      >
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }

@@ -1,25 +1,32 @@
+import Benefits from "@/components/Benefits";
+import Expertise from "@/components/Expertise";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
-import Timeline from "@/components/Timeline";
-import Dock from "@/components/Dock";
-import Contact from "@/components/Contact";
-import Testimonials from "@/components/Testimonials";
-import Blog from "@/components/Blog";
+import HomeFAQ from "@/components/HomeFAQ";
+import HomeTestimonials from "@/components/HomeTestimonials";
+import WhyChooseMe from "@/components/WhyChooseMe";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-black">
-      <Hero />
-      <About />
-      <Projects />
-      <Testimonials />
-      <Blog />
-      <Skills />
-      <Timeline />
-      <Dock />
-      <Contact />
+    <main className="relative min-h-screen bg-[#ececea] text-black">
+      <div
+        className="pointer-events-none absolute inset-0 z-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px)",
+          backgroundSize: "42px 42px",
+        }}
+        aria-hidden
+      />
+      <div className="relative z-10">
+        <Hero />
+        <Benefits />
+        <WhyChooseMe />
+        <Expertise />
+        <HomeTestimonials />
+        <HomeFAQ />
+        <Footer />
+      </div>
     </main>
   );
 }
