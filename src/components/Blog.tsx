@@ -1,87 +1,84 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-const ARTICLES = [
-  {
-    title: "From Commerce to Code: My Transition",
-    excerpt: "How I pivoted from a B.Com degree to Full Stack Development in under a year. The challenges, the late nights, and the breakthroughs.",
-    category: "Journey",
-    readTime: "5 min read",
-    link: "#",
-  },
-  {
-    title: "Understanding Microservices Architecture",
-    excerpt: "A deep dive into how I built the Elite Hotel backend using Node.js services, Docker, and RabbitMQ for asynchronous communication.",
-    category: "Tech",
-    readTime: "8 min read",
-    link: "#",
-  },
-  {
-    title: "Why I picked Next.js for Nxtcart",
-    excerpt: "Comparing Create React App (CRA) vs Next.js. Why Server Side Rendering (SSR) and SEO mattered for my e-commerce project.",
-    category: "Tech",
-    readTime: "6 min read",
-    link: "#",
-  },
-];
+import Link from "next/link";
+import { BLOG_POSTS } from "@/data/blog";
 
 export default function Blog() {
   return (
-    <section className="relative z-20 overflow-hidden bg-white py-32 px-4 md:px-12" id="blog">
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="mb-16 text-center text-5xl font-bold tracking-tight text-black md:text-7xl"
-        >
-          Insights
-        </motion.h2>
+    <section id="blog" className="relative z-20 px-4 pb-28 pt-10 md:px-8 md:pt-14">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="mb-8 flex flex-col gap-2 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-black/40">
+              Library
+            </p>
+            <h1 className="mt-1 text-[clamp(1.5rem,3.2vw,2.15rem)] font-bold tracking-tight text-black">
+              Ten briefs worth your time
+            </h1>
+          </div>
+          <p className="max-w-sm text-[13px] leading-relaxed text-black/45 sm:text-right">
+            Curated for builders aiming at serious product work and FAANG-level
+            judgment.
+          </p>
+        </div>
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {ARTICLES.map((article, index) => (
-            <motion.a
-              key={article.title}
-              href={article.link}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -6 }}
-              className="group relative block h-full"
-            >
-              <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-white transition-shadow hover:shadow-md">
-                <div className="h-1 bg-black" />
-
-                <div className="flex flex-1 flex-col p-8">
-                  <div className="mb-6 flex items-center justify-between">
-                    <span className="rounded-full border border-black/10 px-3 py-1 text-xs font-bold text-black">
-                      {article.category}
-                    </span>
-                    <span className="font-mono text-xs text-black/50">
-                      {article.readTime}
-                    </span>
-                  </div>
-
-                  <h3 className="mb-4 text-2xl font-bold text-black transition-opacity group-hover:opacity-70">
-                    {article.title}
-                  </h3>
-
-                  <p className="mb-6 flex-1 leading-relaxed text-black/60">
-                    {article.excerpt}
-                  </p>
-
-                  <div className="flex items-center text-sm font-bold text-black transition-transform group-hover:translate-x-2">
-                    Read Article <span className="ml-2">→</span>
-                  </div>
-                </div>
-              </div>
-            </motion.a>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {BLOG_POSTS.map((post, i) => (
+            <BlogCard key={post.slug} post={post} index={i} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function BlogCard({
+  post,
+  index,
+}: {
+  post: (typeof BLOG_POSTS)[number];
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, delay: (index % 4) * 0.05 }}
+    >
+      <Link
+        href={`/blog/${post.slug}`}
+        className="group relative flex h-full min-h-[300px] flex-col overflow-hidden rounded-[24px] border border-black/8 bg-white shadow-[0_12px_32px_rgba(0,0,0,0.05)] transition-transform duration-300 hover:-translate-y-1"
+      >
+        <div className="relative h-36 overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={post.image}
+            alt=""
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-black">
+            {post.tag}
+          </span>
+          <span className="absolute bottom-3 right-3 rounded-full bg-black/70 px-2 py-1 text-[10px] font-medium text-white backdrop-blur-sm">
+            {post.readTime}
+          </span>
+        </div>
+        <div className="flex flex-1 flex-col p-4">
+          <p className="text-[11px] font-medium text-black/40">{post.category}</p>
+          <h2 className="mt-1 line-clamp-3 text-[14px] font-bold leading-snug tracking-tight text-black">
+            {post.title}
+          </h2>
+          <div className="mt-auto flex items-center justify-between pt-4 text-[12px] font-semibold text-black/55">
+            <span>{post.views} reads</span>
+            <span className="transition-transform group-hover:translate-x-1">
+              Read →
+            </span>
+          </div>
+        </div>
+      </Link>
+    </motion.div>
   );
 }

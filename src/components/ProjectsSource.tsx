@@ -41,7 +41,7 @@ export default function ProjectsSource() {
           <span className="mb-3 inline-flex rounded-full border border-black/10 bg-white px-3.5 py-1 text-[12px] font-medium text-black/65">
             The source
           </span>
-          <h2 className="mx-auto max-w-3xl text-[clamp(1.75rem,4vw,2.85rem)] font-bold tracking-tight text-black">
+          <h2 className="mx-auto whitespace-nowrap text-[clamp(1.25rem,3.4vw,2.65rem)] font-bold tracking-tight text-black">
             One partner. Full stack. Direct line to the work.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-black/50 md:text-[16px]">

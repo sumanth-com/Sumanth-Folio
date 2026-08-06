@@ -23,7 +23,7 @@ function IconShell({
   );
 }
 
-/** Visible liquid glass polish — soft white smoke/waves on black */
+/** Soft premium polish — clean light on black */
 function LiquidGlassPolish() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
@@ -31,82 +31,42 @@ function LiquidGlassPolish() {
 
       <motion.div
         animate={{
-          x: ["-18%", "22%", "-12%"],
-          y: ["-8%", "18%", "-5%"],
-          rotate: [0, 28, -12, 0],
-          scale: [1, 1.35, 0.92, 1],
-          opacity: [0.75, 1, 0.8],
+          opacity: [0.45, 0.72, 0.5, 0.78, 0.45],
+          scale: [1, 1.08, 1.02, 1.1, 1],
+          x: [0, 10, -4, 8, 0],
+          y: [0, 6, 2, -4, 0],
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -right-10 top-[-35%] h-[130%] w-[95%] rounded-full bg-[radial-gradient(circle_at_40%_45%,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0.2)_28%,transparent_58%)] blur-[26px]"
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -left-[20%] -top-[30%] h-[90%] w-[100%] rounded-full bg-[radial-gradient(ellipse_at_30%_25%,rgba(255,255,255,0.24)_0%,rgba(255,255,255,0.07)_38%,transparent_68%)] blur-[2px]"
       />
       <motion.div
         animate={{
-          x: ["12%", "-30%", "16%"],
-          y: ["0%", "25%", "-12%"],
-          rotate: [0, -30, 14, 0],
-          scale: [1.1, 0.85, 1.25, 1],
-          opacity: [0.55, 0.95, 0.6],
+          opacity: [0.2, 0.42, 0.25, 0.4, 0.2],
+          scale: [1, 1.12, 0.96, 1.06, 1],
         }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-        className="absolute -left-16 top-[-10%] h-[110%] w-[90%] rounded-full bg-[radial-gradient(circle_at_55%_40%,rgba(230,235,245,0.45)_0%,rgba(255,255,255,0.12)_35%,transparent_65%)] blur-[30px]"
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute left-[8%] top-[10%] h-36 w-44 rounded-full bg-[radial-gradient(circle,rgba(230,235,245,0.2)_0%,transparent_70%)] blur-[26px]"
       />
       <motion.div
         animate={{
-          x: ["-8%", "18%", "-6%"],
-          y: ["20%", "-15%", "10%"],
-          scale: [0.9, 1.2, 0.95],
-          opacity: [0.4, 0.85, 0.5],
+          opacity: [0.1, 0.22, 0.12, 0.2, 0.1],
+          x: ["0%", "10%", "-4%", "0%"],
+          y: ["0%", "-8%", "5%", "0%"],
         }}
-        transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-        className="absolute left-[10%] top-[5%] h-36 w-52 rounded-full bg-white/40 blur-[20px]"
-      />
-      <motion.div
-        animate={{
-          x: ["5%", "-15%", "8%"],
-          y: ["-5%", "20%", "0%"],
-          opacity: [0.35, 0.7, 0.4],
-        }}
-        transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-        className="absolute bottom-[-20%] right-[5%] h-40 w-48 rounded-full bg-[radial-gradient(circle,rgba(200,210,230,0.35)_0%,transparent_70%)] blur-[24px]"
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute bottom-[-20%] right-[-12%] h-40 w-48 rounded-full bg-[radial-gradient(circle,rgba(180,190,210,0.14)_0%,transparent_70%)] blur-[28px]"
       />
 
-      <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 280" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="waveFill" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.2)" />
-            <stop offset="50%" stopColor="rgba(255,255,255,0.35)" />
-            <stop offset="100%" stopColor="rgba(255,255,255,0.12)" />
-          </linearGradient>
-          <filter id="waveBlur">
-            <feGaussianBlur stdDeviation="10" />
-          </filter>
-        </defs>
-        <motion.path
-          fill="url(#waveFill)"
-          filter="url(#waveBlur)"
-          animate={{
-            d: [
-              "M0 120 C70 80, 130 160, 200 110 C270 60, 330 140, 400 95 L400 0 L0 0 Z",
-              "M0 95 C80 150, 140 70, 210 130 C280 185, 340 75, 400 115 L400 0 L0 0 Z",
-              "M0 130 C60 70, 150 155, 220 90 C290 35, 350 145, 400 100 L400 0 L0 0 Z",
-              "M0 120 C70 80, 130 160, 200 110 C270 60, 330 140, 400 95 L400 0 L0 0 Z",
-            ],
-          }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </svg>
-
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-transparent to-black/40" />
     </div>
   );
 }
 
 const TOP_CARDS = [
   {
-    title: "Affordability",
+    title: "Direct value",
     description:
-      "Access high-quality design services at a fraction of traditional costs.",
+      "You work with me — not a markup chain. Senior craft at a clear price, without agency overhead.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
         <circle cx="12" cy="12" r="9" />
@@ -115,8 +75,9 @@ const TOP_CARDS = [
     ),
   },
   {
-    title: "Consistency",
-    description: "Ensure a consistent brand identity with regular design output.",
+    title: "One voice",
+    description:
+      "I own the brand end to end. Every screen stays consistent because one person makes the calls.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
         <rect x="3" y="3" width="7" height="7" rx="1.5" />
@@ -127,8 +88,9 @@ const TOP_CARDS = [
     ),
   },
   {
-    title: "Scalability",
-    description: "Scalable systems built to support growing products and businesses.",
+    title: "Built to grow",
+    description:
+      "I design systems that scale with your product — structure first, so growth doesn’t break the experience.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M4 20V10M10 20V4M16 20v-7M22 20V8" strokeLinecap="round" />
@@ -139,8 +101,9 @@ const TOP_CARDS = [
 
 const BOTTOM_CARDS = [
   {
-    title: "Flexibility",
-    description: "Adapt the service to cover a wide range of design tasks as needed.",
+    title: "Full range",
+    description:
+      "Strategy, UI, frontend, and shipping — I cover the stack myself. One brief, one builder, no handoffs.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M4 8h10a3 3 0 1 1 0 6H8" strokeLinecap="round" />
@@ -151,21 +114,20 @@ const BOTTOM_CARDS = [
     ),
   },
   {
-    title: "Diversity",
+    title: "Deep craft",
     description:
-      "Access to a variety of styles and expertise from a pool of creative professionals and people.",
+      "From landing pages to product systems — I bring the styles and engineering depth your brand actually needs.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <circle cx="8" cy="7" r="2.5" />
-        <circle cx="16" cy="7" r="2.5" />
-        <circle cx="12" cy="13.5" r="2.5" />
-        <path d="M2.5 19c.4-2.4 2.5-4 5.5-4M21.5 19c-.4-2.4-2.5-4-5.5-4M7.5 19c.5-1.8 2-3 4.5-3s4 1.2 4.5 3" strokeLinecap="round" />
+        <path d="M12 3 4 7v5c0 4.5 3.4 8.4 8 9.5 4.6-1.1 8-5 8-9.5V7l-8-4Z" strokeLinejoin="round" />
+        <path d="M9.5 12.5 11 14l3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
   {
-    title: "Support",
-    description: "Enjoy dedicated customer service and revisions to perfect your designs.",
+    title: "Direct support",
+    description:
+      "You talk to me. Revisions, decisions, and delivery stay on one line — no tickets lost between teams.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M4 14v-2a8 8 0 0 1 16 0v2" strokeLinecap="round" />
@@ -175,8 +137,9 @@ const BOTTOM_CARDS = [
     ),
   },
   {
-    title: "Convenience",
-    description: "Streamline the design process with a simple workflow and process.",
+    title: "Simple process",
+    description:
+      "Brief → build → ship. I keep the workflow short so momentum never stalls on process theater.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
         <rect x="4" y="4" width="16" height="16" rx="3" />
@@ -202,11 +165,11 @@ export default function Expertise() {
             Expertise
           </span>
           <h2 className="whitespace-nowrap text-[clamp(1.25rem,4.4vw,3rem)] font-bold tracking-tight text-black">
-            Design support with clear direction
+            One seat. Full ownership.
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-[15px] leading-relaxed text-black/50">
-            A focused mix of strategy, design, and execution to help ideas become
-            clear, refined, and ready to launch with confidence.
+            I handle strategy, design, and build myself — clear direction, no
+            handoffs, and accountability that never gets diluted.
           </p>
         </div>
 
@@ -249,8 +212,8 @@ export default function Expertise() {
               </IconShell>
               <h3 className="mb-2 text-[16px] font-bold tracking-tight">Speed</h3>
               <p className="text-[13px] leading-relaxed text-white/60">
-                Get quicker turnarounds on design projects without sacrificing
-                quality at a way better price on your wallet.
+                I decide fast and ship faster — sharp turnarounds without cutting
+                quality, because I&apos;m the only hand on the work.
               </p>
             </div>
           </motion.article>

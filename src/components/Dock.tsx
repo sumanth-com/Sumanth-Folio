@@ -28,8 +28,11 @@ const Icons = {
   BookOpen: (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
   ),
-  Mail: (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  Contact: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="m22 2-7 20-4-9-9-4Z" />
+      <path d="M22 2 11 13" />
+    </svg>
   ),
 };
 
@@ -39,13 +42,16 @@ const DOCK_ITEMS = [
   { id: "projects", icon: Icons.Code, label: "Projects", href: "/projects" },
   { id: "testimonials", icon: Icons.Star, label: "Testimonials", href: "/testimonials" },
   { id: "blog", icon: Icons.BookOpen, label: "Blog", href: "/blog" },
-  { id: "contact", icon: Icons.Mail, label: "Contact", href: "/contact" },
+  { id: "contact", icon: Icons.Contact, label: "Contact", href: "/contact" },
 ];
 
 export default function Dock() {
   const mouseX = useMotionValue(Infinity);
   const pathname = usePathname();
   const [launchingId, setLaunchingId] = useState<string | null>(null);
+
+  // Hide dock on individual blog article pages only
+  const isBlogArticle = /^\/blog\/[^/]+/.test(pathname);
 
   const onLaunch = useEffectEvent((id: string) => {
     setLaunchingId(id);
@@ -56,6 +62,8 @@ export default function Dock() {
     const t = setTimeout(() => setLaunchingId(null), 900);
     return () => clearTimeout(t);
   }, [launchingId, pathname]);
+
+  if (isBlogArticle) return null;
 
   return (
     <motion.div

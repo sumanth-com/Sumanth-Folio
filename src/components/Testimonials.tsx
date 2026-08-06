@@ -1,206 +1,243 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import type { ReactNode } from "react";
 
-const TESTIMONIALS = [
+const STORIES = [
   {
-    quote: "Fawaz delivered exceptional code on the Elite Hotel project. His understanding of microservices is top-notch.",
-    name: "Alex Morgan",
-    role: "Project Manager, Elite Hotel",
-    initials: "AM",
+    quote:
+      "Working with Sumanth felt incredibly smooth. The direction was clear from day one, and the final site captured our brand with precision.",
+    name: "Vikram Iyer",
+    role: "Founder, Protronics",
+    avatar:
+      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
+    dark: true,
   },
   {
-    quote: "The Nxtcart platform is blazing fast. Fawaz's optimization skills significantly improved our conversion rates.",
-    name: "Sarah Chen",
-    role: "CTO, Nxtcart",
-    initials: "SC",
+    quote:
+      "The process was thoughtful, fast, and highly organized. Every design decision felt intentional, and the product finally looked premium.",
+    name: "Ananya Reddy",
+    role: "Product Lead",
+    avatar:
+      "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
   },
   {
-    quote: "A true professional. He transformed our messy codebase into a clean, scalable architecture.",
-    name: "David Smith",
-    role: "Lead Dev, TechStart",
-    initials: "DS",
+    quote:
+      "Every revision moved us forward. No fluff, just decisive craft that made our platform feel ready for real users.",
+    name: "Siddharth Patel",
+    role: "Director, Ops",
+    avatar:
+      "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
   },
   {
-    quote: "Incredible attention to detail. The UI animations he implemented made our app feel world-class.",
-    name: "Emily Davis",
-    role: "Product Designer",
-    initials: "ED",
+    quote:
+      "I hired Sumanth for a redesign and got a growth partner. Conversion climbed because the experience matched the ambition.",
+    name: "Meera Krishnan",
+    role: "CEO, Retail brand",
+    avatar:
+      "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
+    dark: true,
+  },
+  {
+    quote:
+      "Clear scope, sharp UI, and engineering that holds up when traffic hits. Exactly what we needed to ship with confidence.",
+    name: "Arjun Nair",
+    role: "CTO, SaaS",
+    avatar:
+      "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
+  },
+  {
+    quote:
+      "From first call to live launch, the accountability never slipped. Rare to find, and why we’ll work together again.",
+    name: "Kavya Menon",
+    role: "Founder, EdTech",
+    avatar:
+      "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
+  },
+  {
+    quote:
+      "What stood out about Sumanth was judgment. He knew what to cut, what to amplify, and how to make the product feel inevitable.",
+    name: "Rohan Desai",
+    role: "Partner, Studio",
+    avatar:
+      "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
+    dark: true,
+  },
+  {
+    quote:
+      "Our messy brief became a confident digital presence. Clients noticed. So did our pipeline.",
+    name: "Priya Shah",
+    role: "Head of Brand",
+    avatar:
+      "https://images.pexels.com/photos/1484794/pexels-photo-1484794.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
   },
 ];
 
-export default function Testimonials() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formState, setFormState] = useState({ name: "", role: "", quote: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+function highlightSumanth(quote: string): ReactNode {
+  const parts = quote.split(/(Sumanth)/g);
+  return parts.map((part, i) =>
+    part === "Sumanth" ? (
+      <span key={i} className="font-semibold text-inherit">
+        Sumanth
+      </span>
+    ) : (
+      <span key={i}>{part}</span>
+    ),
+  );
+}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      const response = await fetch("/api/submit-testimonial", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formState),
-      });
-
-      if (!response.ok) throw new Error("Failed to submit");
-
-      setSubmitStatus("success");
-      setFormState({ name: "", role: "", quote: "" });
-      setTimeout(() => {
-        setIsModalOpen(false);
-        setSubmitStatus("idle");
-      }, 2000);
-    } catch (error) {
-      console.error(error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+function StoryCard({ item }: { item: (typeof STORIES)[number] }) {
+  const dark = Boolean(item.dark);
 
   return (
-    <section className="relative z-20 overflow-hidden bg-white py-32" id="testimonials">
-      <div className="relative z-10 container mx-auto mb-16 px-6 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="mb-6 text-5xl font-bold tracking-tight text-black md:text-7xl"
-        >
-          Kind Words
-        </motion.h2>
-        <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-black/60">
-          Feedback from clients and collaborators I&apos;ve had the pleasure of working with.
+    <article
+      className={`flex w-[min(86vw,380px)] shrink-0 flex-col justify-between rounded-[26px] p-6 md:w-[400px] md:p-7 ${
+        dark
+          ? "bg-[#141416] text-white shadow-[0_18px_40px_rgba(0,0,0,0.22)]"
+          : "border border-black/[0.06] bg-white text-black shadow-[0_14px_36px_rgba(0,0,0,0.06)]"
+      }`}
+    >
+      <div>
+        <div className={`mb-4 flex gap-1 ${dark ? "text-[#e8c35a]" : "text-[#c9a227]"}`}>
+          {Array.from({ length: 5 }).map((_, i) => (
+            <svg key={i} viewBox="0 0 20 20" className="h-3 w-3 fill-current" aria-hidden>
+              <path d="M10 1.5l2.5 5.2 5.7.8-4.1 4 1 5.7L10 14.6 4.9 17.2l1-5.7-4.1-4 5.7-.8L10 1.5z" />
+            </svg>
+          ))}
+        </div>
+        <p className={`text-[15px] leading-relaxed md:text-[16px] ${dark ? "text-white/85" : "text-black/65"}`}>
+          &ldquo;{highlightSumanth(item.quote)}&rdquo;
         </p>
-
-        <motion.button
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={() => setIsModalOpen(true)}
-          className="rounded-full border border-black/10 px-6 py-3 text-sm font-medium text-black transition-colors hover:bg-black hover:text-white"
-        >
-          Write a Review
-        </motion.button>
       </div>
-
-      <div className="relative w-full overflow-hidden">
-        <div className="absolute left-0 top-0 z-20 h-full w-32 bg-linear-to-r from-white to-transparent" />
-        <div className="absolute right-0 top-0 z-20 h-full w-32 bg-linear-to-l from-white to-transparent" />
-
-        <div className="flex w-max">
-          <motion.div
-            className="flex gap-8 px-4"
-            animate={{ x: "-50%" }}
-            transition={{ duration: 30, ease: "linear", repeat: Infinity }}
-          >
-            {[...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS].map((item, index) => (
-              <div
-                key={index}
-                className="w-[350px] shrink-0 rounded-2xl border border-black/10 bg-white p-8 md:w-[450px]"
-              >
-                <div className="mb-6 flex items-start gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-black text-lg font-bold text-white">
-                    {item.initials}
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-black">{item.name}</h4>
-                    <p className="text-sm text-black/50">{item.role}</p>
-                  </div>
-                </div>
-                <p className="italic leading-relaxed text-black/70">
-                  &quot;{item.quote}&quot;
-                </p>
-              </div>
-            ))}
-          </motion.div>
+      <div className="mt-7 flex items-center gap-3">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={item.avatar}
+          alt=""
+          className="h-11 w-11 rounded-full object-cover object-top"
+        />
+        <div>
+          <p className={`text-[14px] font-bold ${dark ? "text-white" : "text-black"}`}>
+            {item.name}
+          </p>
+          <p className={`text-[12px] ${dark ? "text-white/45" : "text-black/45"}`}>
+            {item.role}
+          </p>
         </div>
       </div>
+    </article>
+  );
+}
 
-      <AnimatePresence>
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsModalOpen(false)}
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-black/10 bg-white p-8 shadow-2xl"
-            >
-              <h3 className="relative z-10 mb-2 text-2xl font-bold text-black">
-                Submit a Testimonial
-              </h3>
-              <p className="relative z-10 mb-6 text-black/60">
-                Your feedback helps me improve and grow. Thank you!
-              </p>
+function MarqueeRow({
+  items,
+  reverse = false,
+  duration = 48,
+}: {
+  items: typeof STORIES;
+  reverse?: boolean;
+  duration?: number;
+}) {
+  const loop = [...items, ...items];
 
-              <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
-                <div>
-                  <label className="mb-1 block text-sm font-medium text-black/60">Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={formState.name}
-                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    className="w-full rounded-xl border border-black/10 px-4 py-3 text-black transition-colors focus:border-black focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1 block text-sm font-medium text-black/60">Role / Company</label>
-                  <input
-                    type="text"
-                    required
-                    value={formState.role}
-                    onChange={(e) => setFormState({ ...formState, role: e.target.value })}
-                    className="w-full rounded-xl border border-black/10 px-4 py-3 text-black transition-colors focus:border-black focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1 block text-sm font-medium text-black/60">Testimonial</label>
-                  <textarea
-                    required
-                    rows={4}
-                    value={formState.quote}
-                    onChange={(e) => setFormState({ ...formState, quote: e.target.value })}
-                    className="w-full resize-none rounded-xl border border-black/10 px-4 py-3 text-black transition-colors focus:border-black focus:outline-none"
-                  />
-                </div>
+  return (
+    <div className="relative w-full overflow-hidden">
+      <motion.div
+        className="flex w-max gap-4 md:gap-5"
+        animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
+        transition={{ duration, ease: "linear", repeat: Infinity }}
+      >
+        {loop.map((item, index) => (
+          <StoryCard key={`${item.name}-${index}`} item={item} />
+        ))}
+      </motion.div>
+    </div>
+  );
+}
 
-                <div className="flex gap-3 pt-2">
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(false)}
-                    className="flex-1 rounded-xl border border-black/10 py-3 font-medium text-black transition-colors hover:bg-black/5"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="flex-1 rounded-xl bg-black py-3 font-bold text-white transition-opacity hover:opacity-80 disabled:opacity-50"
-                  >
-                    {isSubmitting ? "Sending..." : submitStatus === "success" ? "Sent!" : submitStatus === "error" ? "Retry" : "Submit"}
-                  </button>
-                </div>
-              </form>
-            </motion.div>
+export default function Testimonials() {
+  const rowA = STORIES.filter((_, i) => i % 2 === 0);
+  const rowB = STORIES.filter((_, i) => i % 2 === 1);
+
+  return (
+    <section
+      className="relative z-20 flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden py-20 pb-28 md:py-24"
+      id="stories"
+    >
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 md:px-8">
+        <div className="relative mx-auto mb-10 max-w-3xl text-center md:mb-14">
+          <span className="mb-4 inline-flex rounded-full border border-black/10 bg-white px-3.5 py-1 text-[12px] font-medium text-black/65">
+            Success stories
+          </span>
+          <h2 className="text-[clamp(1.7rem,3.8vw,2.75rem)] font-bold tracking-tight text-black">
+            Real words. Real launches.
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-[14px] leading-relaxed text-black/50 md:text-[15px]">
+            Continuous proof from founders and teams who trusted the process,
+            direction, and final result.
+          </p>
+        </div>
+
+        <div className="relative space-y-5 overflow-hidden rounded-[28px]">
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-20 w-10 bg-gradient-to-r from-[#ececea] to-transparent sm:w-16 md:w-24"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-20 w-10 bg-gradient-to-l from-[#ececea] to-transparent sm:w-16 md:w-24"
+            aria-hidden
+          />
+
+          <MarqueeRow items={rowA} duration={52} />
+          <MarqueeRow items={rowB} reverse duration={58} />
+        </div>
+
+        {/* Client + investor CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.5 }}
+          className="relative z-10 mt-12 md:mt-16"
+        >
+          <div className="overflow-hidden rounded-[28px] border border-black/8 bg-[#0c0c0d] px-6 py-8 text-center text-white shadow-[0_24px_50px_rgba(0,0,0,0.18)] md:px-10 md:py-10 md:text-left">
+            <div className="flex flex-col items-center justify-between gap-6 md:flex-row md:items-end">
+              <div className="max-w-xl">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/40">
+                  For founders & investors
+                </p>
+                <h3 className="mt-2 text-[clamp(1.35rem,2.8vw,1.85rem)] font-bold tracking-tight text-white">
+                  Build something worth backing.
+                </h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-white/50">
+                  If you&apos;re launching a product or evaluating a team that can
+                  ship with clarity, let&apos;s talk. One accountable partner from
+                  strategy to live product.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-col items-center gap-3 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-[13px] font-semibold text-black transition-opacity hover:opacity-90"
+                >
+                  Start a partnership
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M5 12h14" />
+                    <path d="m13 6 6 6-6 6" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-5 py-3 text-[13px] font-semibold text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+                >
+                  See shipped work
+                </Link>
+              </div>
+            </div>
           </div>
-        )}
-      </AnimatePresence>
+        </motion.div>
+      </div>
     </section>
   );
 }
