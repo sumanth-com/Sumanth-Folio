@@ -107,13 +107,13 @@ export default function ProjectCaseStudy({ project }: { project: ProjectCase }) 
       <section id="live-look" className="mx-auto w-full max-w-6xl px-4 pb-16 md:px-10 md:pb-20">
         <div className="mb-6 text-center">
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-black/40">
-            {hasLive ? "Live look" : "Product look"}
+            {hasLive ? "Live product" : "Product"}
           </p>
-          <h2 className="mt-1 text-[clamp(1.35rem,2.8vw,1.85rem)] font-bold tracking-tight text-black">
-            How it shows on screen
+          <h2 className="mt-1 whitespace-nowrap text-[clamp(1.25rem,2.8vw,1.85rem)] font-bold tracking-tight text-black">
+            Built to convert attention into trust.
           </h2>
           <p className="mx-auto mt-2 max-w-md text-[13px] text-black/45">
-            Starting view — the product as visitors meet it first.
+            The first impression that carries the brand, the promise, and the next action.
           </p>
         </div>
         <BrowserChrome
@@ -148,17 +148,17 @@ export default function ProjectCaseStudy({ project }: { project: ProjectCase }) 
         )}
       </section>
 
-      {/* screen-by-screen */}
+      {/* experience moments */}
       <section className="mx-auto w-full max-w-6xl px-4 pb-16 md:px-10 md:pb-20">
         <div className="mb-10 text-center md:mb-14">
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-black/40">
-            Screens
+            Experience
           </p>
-          <h2 className="mt-1 text-[clamp(1.45rem,3vw,2rem)] font-bold tracking-tight text-black">
-            Screen by screen
+          <h2 className="mt-1 whitespace-nowrap text-[clamp(1.35rem,3vw,2rem)] font-bold tracking-tight text-black">
+            Moments that move the business.
           </h2>
           <p className="mx-auto mt-2 max-w-lg text-[14px] text-black/50">
-            Each view has a clear job — what it shows, and why it exists in the product.
+            Each surface has a job — acquire trust, remove doubt, and drive action.
           </p>
         </div>
 
@@ -200,7 +200,7 @@ export default function ProjectCaseStudy({ project }: { project: ProjectCase }) 
                   </p>
                   <div className="mt-6 border-l-2 border-black/15 pl-4">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-black/40">
-                      What it&apos;s used for
+                      Outcome
                     </p>
                     <p className="mt-1.5 text-[14px] leading-relaxed text-black/70">
                       {screen.use}

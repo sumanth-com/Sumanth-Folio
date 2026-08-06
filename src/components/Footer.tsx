@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { CONTACT } from "@/data/contact";
 
 function BevelPill({
   href,
@@ -59,11 +60,11 @@ function BevelPill({
 const SOCIAL = [
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/",
+    href: CONTACT.linkedin,
   },
   {
     label: "X",
-    href: "https://twitter.com/",
+    href: CONTACT.x,
   },
 ];
 
@@ -151,7 +152,7 @@ export default function Footer() {
         </p>
 
         <div className="mt-9">
-          <BevelPill href="/contact">
+          <BevelPill href={CONTACT.meeting} external>
             Book a free intro call
             <span aria-hidden>→</span>
           </BevelPill>

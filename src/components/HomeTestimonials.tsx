@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { STATS } from "@/data/stats";
 
 const AVATARS = {
   ethan:
@@ -157,7 +158,7 @@ export default function HomeTestimonials() {
                 </svg>
               </span>
               <p className="text-[15px] font-semibold tracking-tight text-black">
-                Trusted by 85+ clients
+                Trusted by {STATS.clients} clients
               </p>
             </motion.div>
           </div>

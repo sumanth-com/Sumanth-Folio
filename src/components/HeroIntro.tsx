@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { STATS } from "@/data/stats";
 
 export default function HeroIntro() {
   return (
@@ -27,16 +28,16 @@ export default function HeroIntro() {
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] font-medium text-black/60 sm:text-[12px]">
           <span className="inline-flex items-center gap-2">
             <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-black px-2 text-[11px] font-bold text-white">
-              1.5+
+              {STATS.years}
             </span>
-            years of experience
+            {STATS.yearsLabel}
           </span>
           <span className="h-1 w-1 rounded-full bg-black/25" aria-hidden />
           <span className="inline-flex items-center gap-2">
             <span className="inline-flex h-7 min-w-7 items-center justify-center rounded-full bg-black px-2 text-[11px] font-bold text-white">
-              21+
+              {STATS.clients}
             </span>
-            happy clients
+            {STATS.clientsLabel}
           </span>
         </div>
 

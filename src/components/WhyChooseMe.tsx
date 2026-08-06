@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { STATS } from "@/data/stats";
 
 const AVATARS = [
   "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
@@ -8,6 +9,9 @@ const AVATARS = [
   "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
   "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=120&h=120&dpr=1",
 ];
+
+const NUMBER =
+  "text-[clamp(4.5rem,8vw,6rem)] font-bold leading-none tracking-tight";
 
 export default function WhyChooseMe() {
   return (
@@ -52,7 +56,7 @@ export default function WhyChooseMe() {
                 ))}
               </div>
               <p className="text-[15px] font-semibold tracking-tight text-black">
-                85+ clients
+                {STATS.clients} {STATS.clientsLabel}
               </p>
             </motion.div>
 
@@ -67,10 +71,10 @@ export default function WhyChooseMe() {
                 Clear design direction shaped around every project goal.
               </p>
               <div>
-                <p className="text-[clamp(4.5rem,8vw,6rem)] font-bold leading-none tracking-tight text-black">
-                  92
+                <p className={`${NUMBER} text-black`}>{STATS.satisfaction}</p>
+                <p className="mt-2 text-[14px] text-black/45">
+                  {STATS.satisfactionLabel}
                 </p>
-                <p className="mt-2 text-[14px] text-black/45">Client satisfaction</p>
               </div>
             </motion.div>
           </div>
@@ -89,10 +93,10 @@ export default function WhyChooseMe() {
                 care.
               </p>
               <div>
-                <p className="text-[clamp(4.5rem,8vw,6rem)] font-bold leading-none tracking-tight text-black">
-                  56
+                <p className={`${NUMBER} text-black`}>{STATS.projects}</p>
+                <p className="mt-2 text-[14px] text-black/45">
+                  {STATS.projectsLabel}
                 </p>
-                <p className="mt-2 text-[14px] text-black/45">Projects completed</p>
               </div>
             </motion.div>
 
@@ -129,9 +133,7 @@ export default function WhyChooseMe() {
 
             <div>
               <div className="mb-2 flex items-end gap-3">
-                <p className="text-[clamp(4rem,7vw,5.5rem)] font-bold leading-none tracking-tight text-white">
-                  4.9
-                </p>
+                <p className={`${NUMBER} text-white`}>{STATS.rating}</p>
                 <div className="mb-2 flex gap-0.5 text-[#e8c35a]">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <svg
@@ -145,9 +147,7 @@ export default function WhyChooseMe() {
                   ))}
                 </div>
               </div>
-              <p className="text-[14px] text-white/45">
-                Trusted by clients across India
-              </p>
+              <p className="text-[14px] text-white/45">{STATS.ratingLabel}</p>
             </div>
           </motion.div>
         </div>

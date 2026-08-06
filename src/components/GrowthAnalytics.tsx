@@ -163,10 +163,17 @@ export default function GrowthAnalytics({
                   strokeWidth="3"
                   strokeLinecap="round"
                   filter={`url(#${glowId})`}
-                  initial={{ pathLength: 0, opacity: 0.4 }}
-                  whileInView={{ pathLength: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.4, ease: "easeInOut" }}
+                  initial={{ pathLength: 0, opacity: 0.45 }}
+                  animate={{
+                    pathLength: [0, 1, 1, 0],
+                    opacity: [0.45, 1, 1, 0.45],
+                  }}
+                  transition={{
+                    duration: 3.6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    times: [0, 0.45, 0.7, 1],
+                  }}
                 />
                 <motion.circle
                   cx="142"
@@ -174,12 +181,31 @@ export default function GrowthAnalytics({
                   r="6"
                   fill={bright}
                   filter={`url(#${glowId})`}
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 1, type: "spring", stiffness: 260, damping: 16 }}
+                  animate={{
+                    scale: [0.85, 1.2, 0.85],
+                    opacity: [0.65, 1, 0.65],
+                  }}
+                  transition={{
+                    duration: 1.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 />
-                <circle cx="142" cy="22" r="11" fill={hexToRgba(brandColor, 0.22)} />
+                <motion.circle
+                  cx="142"
+                  cy="22"
+                  r="11"
+                  fill={hexToRgba(brandColor, 0.22)}
+                  animate={{
+                    scale: [1, 1.45, 1],
+                    opacity: [0.35, 0.15, 0.35],
+                  }}
+                  transition={{
+                    duration: 1.8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
               </svg>
             </div>
 

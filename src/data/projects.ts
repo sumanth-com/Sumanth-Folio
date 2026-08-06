@@ -67,27 +67,27 @@ export const PROJECT_CASES: ProjectCase[] = [
     },
     screens: [
       {
-        title: "Hero & trust bar",
-        device: "Desktop · Phone · Tablet",
+        title: "First impression that sells",
+        device: "Acquisition",
         description:
-          "Visitors land on a confident first impression — “Premium appliances. Smarter choice.” — with warranty callouts, offer pills, and five trust badges (100+ checks, 1-year warranty, happy customers, delivery, support).",
-        use: "Builds instant trust for refurbished shopping and moves people toward Shop Fridges or Get Buying Help.",
+          "A confident brand entry that makes quality and warranty feel obvious before the pitch gets long. Trust badges and clear offers do the heavy lifting.",
+        use: "Builds credibility fast and pushes high-intent visitors into shopping or buying help.",
         image: pro1,
       },
       {
-        title: "New vs refurbished",
-        device: "Desktop · Tablet · Phone",
+        title: "Why refurbished wins",
+        device: "Conversion",
         description:
-          "A side-by-side comparison of Brand New vs Protronics refurbished across price, warranty, quality checks, delivery, and performance — so the savings and quality story is impossible to miss.",
-        use: "Turns hesitation into clarity. Shoppers see why certified refurbished wins, then hit “Shop renewed appliances.”",
+          "A direct comparison against brand-new options — price, checks, warranty, and delivery — so the smarter choice is hard to ignore.",
+        use: "Removes hesitation and turns comparison into purchase momentum.",
         image: pro2,
       },
       {
-        title: "Get in touch",
-        device: "Desktop · Tablet · Phone",
+        title: "Local lead capture",
+        device: "Growth",
         description:
-          "Bengaluru map, store hours, phone, and a clean inquiry form for name, phone, city, and product interest — built for real local follow-up, not generic contact spam.",
-        use: "Captures high-intent leads with context so the team can recommend the right appliance and delivery timeline.",
+          "A clean path for serious buyers — location, hours, and a focused inquiry flow built for real follow-up in Bengaluru.",
+        use: "Converts interest into qualified leads the team can close with context.",
         image: pro3,
       },
     ],
@@ -116,35 +116,35 @@ export const PROJECT_CASES: ProjectCase[] = [
     },
     screens: [
       {
-        title: "Hero & seat reservation",
-        device: "Desktop · Tablet · Phone",
+        title: "Career outcome, clear path",
+        device: "Acquisition",
         description:
-          "“Become the developer companies actually hire” — Full Stack, AI Engineering, System Design, and DevOps through real projects, AI mentoring, and verifiable certifications, with a clear Reserve your seat CTA.",
-        use: "Converts curious visitors into learners by making the outcome and next step obvious on every screen size.",
+          "Positioned for developers who want hire-ready skills through real projects, mentorship, and proof — with a direct seat reservation CTA.",
+        use: "Turns curiosity into committed learners with an obvious next step.",
         image: su1,
       },
       {
-        title: "AI mentor & connected system",
-        device: "Desktop · Phone",
+        title: "AI mentorship that unblocks",
+        device: "Retention",
         description:
-          "Ask Supra for context-aware help, plus one profile that ties roadmap, practice, projects, and progress together.",
-        use: "Unblocks learners in the moment and keeps every skill path connected in one place.",
+          "Context-aware help tied to one connected profile — roadmap, practice, projects, and progress in a single system.",
+        use: "Keeps learners moving when they get stuck and compounds weekly engagement.",
         image: su2,
       },
       {
-        title: "Projects & certifications",
-        device: "Desktop · Tablet",
+        title: "Proof employers can trust",
+        device: "Differentiation",
         description:
-          "Hands-on builds and verifiable certificates — timed skill tests with proof employers can trust.",
-        use: "Turns learning into hiring signals: portfolio work plus credentials, not just completion badges.",
+          "Hands-on builds and verifiable certifications that turn learning into hiring signals, not empty completion badges.",
+        use: "Strengthens career outcomes and makes the product defensible in a crowded EdTech market.",
         image: su3,
       },
       {
-        title: "New vs Suprabase",
-        device: "Desktop · Tablet · Phone",
+        title: "Why Suprabase wins",
+        device: "Conversion",
         description:
-          "A clean comparison of Traditional Bootcamps vs Suprabase across price, mentorship, projects, certifications, learning support, and access.",
-        use: "Helps developers see why Suprabase wins on value and mentorship before they commit.",
+          "A sharp comparison against traditional bootcamps on price, mentorship, projects, support, and access.",
+        use: "Helps serious learners choose value and commit with confidence.",
         image: su4,
       },
     ],
@@ -173,26 +173,26 @@ export const PROJECT_CASES: ProjectCase[] = [
     screens: [
       {
         title: "Own your money",
-        device: "Desktop · Tablet · Phone",
+        device: "Acquisition",
         description:
-          "Landing experience built around “Own Your Money, Shape Your Life” — clear CTAs, trust stats, and a premium dark UI that feels like a real banking product.",
-        use: "Introduces Zentra’s promise and pulls users into Get Started or Explore Features.",
+          "A premium brand promise with clear entry points — built to feel like a serious finance product from the first second.",
+        use: "Establishes trust and pulls users into getting started with intent.",
         image: zen1,
       },
       {
-        title: "Mobile money flow",
-        device: "Phone · Tablet",
+        title: "Money on the move",
+        device: "Engagement",
         description:
-          "Onboarding, spend charts, send/request/invest actions, and premium tiers — the same product language scaled cleanly to smaller screens.",
-        use: "Keeps money management usable on the go without losing clarity or trust.",
+          "Fast paths for send, request, invest, and spend awareness — designed for daily use without losing clarity.",
+        use: "Makes money management a habit people return to through the week.",
         image: zen2,
       },
       {
-        title: "Finance dashboard",
-        device: "Desktop · Tablet · Phone",
+        title: "Command center for cashflow",
+        device: "Retention",
         description:
-          "Total balance, spending overview, quick actions, recent transactions, budget ring, and goals — one dark glass dashboard for everyday money control.",
-        use: "Daily home for checking balances, spending, and progress toward goals.",
+          "Balances, spending, budgets, and goals in one calm system — so users always know where they stand.",
+        use: "Becomes the daily home for financial control and long-term product stickiness.",
         image: zen3,
       },
     ],

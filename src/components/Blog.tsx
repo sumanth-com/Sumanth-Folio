@@ -8,18 +8,16 @@ export default function Blog() {
   return (
     <section id="blog" className="relative z-20 px-4 pb-28 pt-10 md:px-8 md:pt-14">
       <div className="mx-auto w-full max-w-7xl">
-        <div className="mb-8 flex flex-col gap-2 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-black/40">
-              Library
-            </p>
-            <h1 className="mt-1 text-[clamp(1.5rem,3.2vw,2.15rem)] font-bold tracking-tight text-black">
-              Ten briefs worth your time
-            </h1>
-          </div>
-          <p className="max-w-sm text-[13px] leading-relaxed text-black/45 sm:text-right">
-            Curated for builders aiming at serious product work and FAANG-level
-            judgment.
+        <div className="mb-8 flex flex-col items-center text-center sm:mb-10">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-black/40">
+            Library
+          </p>
+          <h1 className="mt-2 whitespace-nowrap text-[clamp(1.35rem,3.4vw,2.25rem)] font-bold tracking-tight text-black">
+            Signal over noise. Read what moves the work.
+          </h1>
+          <p className="mt-3 max-w-lg text-[13px] leading-relaxed text-black/45 md:text-[14px]">
+            Briefs for founders and builders who want leverage, judgment, and
+            outcomes — not recycled hype.
           </p>
         </div>
 

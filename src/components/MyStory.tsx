@@ -34,7 +34,7 @@ export default function MyStory() {
               2024
             </p>
             <p className="mt-1.5 text-[11px] leading-snug text-white/65">
-              Design &amp; digital experiences
+              Shipping products that compound
             </p>
           </div>
         </motion.div>
@@ -50,24 +50,23 @@ export default function MyStory() {
             My story
           </span>
 
-          <h2 className="text-[clamp(1.75rem,3.6vw,2.85rem)] font-bold leading-[1.15] tracking-tight text-black">
-            From curiosity to refined craft
+          <h2 className="whitespace-nowrap text-[clamp(1.2rem,2.8vw,2.15rem)] font-bold leading-none tracking-tight text-black">
+            Build once. Compound forever.
           </h2>
 
           <div className="mt-4 space-y-3 text-[14px] leading-relaxed text-black/55 md:text-[15px]">
             <p>
-              I lead with strategy first: clarify the goals, shape product
-              direction, then build systems people trust and use.
+              I start with the business outcome, then design the product and
+              systems that make that outcome inevitable.
             </p>
             <p>
-              Every decision ties back to outcomes—clarity in design, speed in
-              delivery, and architecture that scales without losing focus or
-              quality.
+              Strategy, full-stack execution, and ownership stay in one seat —
+              so decisions stay sharp, delivery stays fast, and quality does not
+              dilute as we scale.
             </p>
             <p>
-              I partner with founders and teams to ship digital products that
-              feel intentional, commercially sharp, and ready for long-term
-              growth.
+              I partner with founders who want leverage: products that feel
+              intentional, convert with clarity, and keep growing after launch.
             </p>
           </div>
 
@@ -86,7 +85,7 @@ export default function MyStory() {
                 Suprabase
               </p>
               <p className="mt-0.5 text-[13px] text-black/45">
-                Founder &amp; Designer
+                Founder · Full-stack product builder
               </p>
             </div>
           </div>
