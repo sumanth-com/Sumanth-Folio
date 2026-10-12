@@ -39,7 +39,7 @@ const Icons = {
 const DOCK_ITEMS = [
   { id: "home", icon: Icons.Home, label: "Home", href: "/" },
   { id: "about", icon: Icons.User, label: "About", href: "/about" },
-  { id: "projects", icon: Icons.Code, label: "Projects", href: "/projects" },
+  { id: "projects", icon: Icons.Code, label: "My Works", href: "/projects" },
   { id: "testimonials", icon: Icons.Star, label: "Testimonials", href: "/testimonials" },
   { id: "blog", icon: Icons.BookOpen, label: "Blog", href: "/blog" },
   { id: "contact", icon: Icons.Contact, label: "Contact", href: "/contact" },

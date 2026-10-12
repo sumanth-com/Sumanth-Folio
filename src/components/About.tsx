@@ -75,33 +75,24 @@ const Icons = {
 
 const HIRE_CARDS: {
   title: string;
-  detail: string;
   icon: ReactNode;
   dark?: boolean;
 }[] = [
   {
     title: "Full Stack Developer",
-    detail:
-      "I build both the interface and the API — React, Next.js, Node — so one person owns the full product path.",
     icon: Icons.code,
   },
   {
     title: "Design + Engineering",
-    detail:
-      "I turn wireframes into polished UI and ship the code behind it, so design never gets lost in handoff.",
     icon: Icons.layers,
   },
   {
     title: "1.5+ Years Experience",
-    detail:
-      "Real production work across the stack — shipping features, fixing edge cases, and learning from live users.",
     icon: Icons.briefcase,
     dark: true,
   },
   {
     title: "21+ Projects Shipped",
-    detail:
-      "Web apps, landing pages, and platforms delivered end to end — from first commit to a live, usable product.",
     icon: Icons.check,
   },
 ];
@@ -153,7 +144,7 @@ export default function About() {
                 transition={{ duration: 0.45, delay: 0.15 + index * 0.08 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -3 }}
-                className={`relative overflow-hidden rounded-xl p-2.5 shadow-sm transition-shadow hover:shadow-md sm:p-3 ${
+                className={`relative flex h-14 items-center justify-center overflow-hidden rounded-xl px-2.5 shadow-sm transition-shadow hover:shadow-md sm:h-16 sm:px-3 ${
                   card.dark
                     ? "border border-white/10 bg-[#141416] text-white shadow-[0_12px_28px_rgba(0,0,0,0.2)]"
                     : "border border-black/10 bg-white"
@@ -161,7 +152,7 @@ export default function About() {
               >
                 {card.dark && <LiquidPolish />}
                 <h3
-                  className={`relative z-10 mb-0.5 flex items-center gap-2 text-xs font-bold sm:text-sm ${
+                  className={`relative z-10 flex items-center justify-center gap-2 text-center text-xs font-bold sm:text-sm ${
                     card.dark ? "text-white" : "text-black"
                   }`}
                 >
@@ -176,13 +167,6 @@ export default function About() {
                   </span>
                   {card.title}
                 </h3>
-                <p
-                  className={`relative z-10 text-[11px] leading-snug sm:text-xs ${
-                    card.dark ? "text-white/65" : "text-black/55"
-                  }`}
-                >
-                  {card.detail}
-                </p>
               </motion.div>
             ))}
           </div>

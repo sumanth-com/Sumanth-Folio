@@ -527,6 +527,116 @@ export const BLOG_POSTS: BlogPost[] = [
     views: "158k",
     image: img(3183150),
   },
+  {
+    slug: "chatgpt-as-operating-layer",
+    title: "ChatGPT Is No Longer a Chatbot. It Is Becoming Your Operating Layer.",
+    excerpt:
+      "Agents, memory, voice, and connected tools turned a chat window into a place where work actually gets done. Builders who treat it like a search box are leaving leverage on the table.",
+    overview: [
+      "How ChatGPT shifted from answers to actions",
+      "Where agents, memory, and tools genuinely help",
+      "What this means for people building products",
+      "A practical setup for founders and students",
+    ],
+    takeaways: [
+      "Use it for workflows, not one-off questions",
+      "Give it durable context, then reuse it",
+      "Verify anything that touches money or users",
+      "Design your product to plug into assistants",
+    ],
+    sections: [
+      {
+        heading: "The chat box was the demo. The workflow is the product.",
+        paragraphs: [
+          "When ChatGPT launched, most people used it like a smarter search engine: ask, read, copy. That phase is over. Today it can browse, run code, read files, remember preferences, speak in real time, and take multi-step actions through agent mode and connected apps.",
+          "That changes the question from “what can I ask it?” to “what work can I hand it?” The people getting real value are the ones who design repeatable workflows around it, not the ones writing longer prompts.",
+        ],
+      },
+      {
+        heading: "Where it genuinely earns its place",
+        paragraphs: [
+          "Research to brief. Messy notes to a clean plan. A spreadsheet to a decision memo. A bug report to a reproduction and a first fix. These are tasks with a clear input, a clear output, and a human who reviews before anything ships.",
+          "Memory and projects matter more than people think. When the assistant already knows your product, your users, and your constraints, every answer starts from your context instead of from zero.",
+        ],
+      },
+      {
+        heading: "What builders should take from this",
+        paragraphs: [
+          "Users will increasingly arrive through assistants, not only through your homepage. If your product exposes clean APIs, clear documentation, and predictable actions, assistants can use it on your users’ behalf. If it does not, you become invisible in that flow.",
+          "Inside your own team, treat ChatGPT like a capable teammate with rules: what it can touch, what it must never touch, and when a human signs off. Speed is only valuable when trust survives it.",
+        ],
+      },
+      {
+        heading: "A setup you can start this week",
+        paragraphs: [
+          "Create one project per area of work and load it with the documents that never change: product goals, tone, constraints. Pick one weekly workflow and run it through the assistant every time for two weeks.",
+          "Then measure honestly: time saved, quality of output, and how often you had to correct it. Keep what compounds. Drop what only feels productive.",
+        ],
+      },
+    ],
+    gallery: [img(5077047), img(8386434), img(2102416)],
+    category: "AI Engineering",
+    tag: "CHATGPT",
+    readTime: "11 min",
+    date: "Oct 6, 2026",
+    views: "174k",
+    image: img(16027824),
+  },
+  {
+    slug: "project-astra-universal-assistant",
+    title: "Project Astra and the Rise of AI That Can See, Hear, and Remember",
+    excerpt:
+      "Google DeepMind’s Project Astra points to the next interface: an assistant that understands the world through your camera and voice in real time. Here is what that means for the products we build next.",
+    overview: [
+      "What Project Astra is trying to become",
+      "Why real-time multimodal AI changes interfaces",
+      "The product and privacy questions it raises",
+      "How builders can prepare now",
+    ],
+    takeaways: [
+      "The next interface is the world, not a screen",
+      "Latency and context decide whether it feels useful",
+      "Privacy has to be designed in, not bolted on",
+      "Start building for voice and vision today",
+    ],
+    sections: [
+      {
+        heading: "From typing prompts to pointing a camera",
+        paragraphs: [
+          "Project Astra is Google DeepMind’s research prototype for a universal AI assistant. Instead of waiting for typed questions, it watches through a phone camera or glasses, listens, and responds in conversation, keeping track of what it has already seen.",
+          "The shift sounds small but it is not. Every interface we have built assumes the user translates their world into text and taps. An assistant that can simply look at the problem removes that translation step entirely.",
+        ],
+      },
+      {
+        heading: "Why real time is the whole game",
+        paragraphs: [
+          "A multimodal model that answers in eight seconds is a novelty. One that answers while you are still holding the object is a tool. Low latency, short-term memory of the scene, and natural interruption are what make this category feel like help instead of a demo.",
+          "The same pattern is showing up across the industry, from live voice and video in ChatGPT to Gemini Live. The direction is clear: assistants are moving off the keyboard and into the room with you.",
+        ],
+      },
+      {
+        heading: "The hard questions nobody can skip",
+        paragraphs: [
+          "An assistant that sees and remembers is also an assistant that can over-collect. What gets stored, for how long, who else appears in the frame, and how a user deletes it are product decisions, not legal footnotes.",
+          "Teams that win here will make privacy visible: clear indicators when it is watching, simple controls for memory, and sensible defaults that respect people who never agreed to be on camera.",
+        ],
+      },
+      {
+        heading: "How to prepare as a builder",
+        paragraphs: [
+          "Practice building with vision and voice APIs now. Small experiments count: describe a screen, read a label, guide a user through a physical task. You will learn quickly where latency and accuracy break the experience.",
+          "And design your services to be callable by assistants. When people start asking an AI about what is in front of them, the products with clean, reliable actions will be the ones it reaches for.",
+        ],
+      },
+    ],
+    gallery: [img(8386440), img(17483869), img(3861969)],
+    category: "Product",
+    tag: "ASTRA",
+    readTime: "12 min",
+    date: "Sep 29, 2026",
+    views: "132k",
+    image: img(8849295),
+  },
 ];
 
 export function getFeaturedPost() {
